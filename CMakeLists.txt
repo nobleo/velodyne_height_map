@@ -49,7 +49,7 @@ install(DIRECTORY launch/
 
 # unit tests
 if (CATKIN_ENABLE_TESTING)
-  message("-- ${PROJECT_NAME} unit testing enabled")
+  message(STATUS "-- ${PROJECT_NAME} unit testing enabled")
 
   # Download a packet capture (PCAP) file containing test data.
   # Store it in devel-space, so rostest can easily find it.
@@ -58,14 +58,14 @@ if (CATKIN_ENABLE_TESTING)
     http://download.ros.org/data/velodyne/class.pcap
     DESTINATION ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_SHARE_DESTINATION}/tests
     MD5 65808d25772101358a3719b451b3d015)
-  
+
   # declare rostest scripts
   add_rostest(tests/heightmap_node_hz.test)
   add_rostest(tests/heightmap_nodelet_hz.test)
-  
+
   # parse check all the launch/*.launch files
   ##roslaunch_add_file_check(launch)
 
 else ()
-  message("-- ${PROJECT_NAME} unit testing disabled")
+  message(STATUS "-- ${PROJECT_NAME} unit testing disabled")
 endif (CATKIN_ENABLE_TESTING)
